@@ -5,5 +5,10 @@ public class Main{
 		Board board = new Board();
 
 		board.printBoard();
+		boolean endGame = false;
+		
+		while(!endGame){
+			System.out.println("test");
+		}
 	}
 }
