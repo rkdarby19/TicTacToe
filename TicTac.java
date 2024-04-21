@@ -9,7 +9,8 @@ public class TicTac{
 	}
 	public int game(){
 		System.out.println("Welcome to TicTacToe!");
-		
+		board.setChoices(4,1);			
+		board.printBoard();
 		
 		return 0;
 	}

@@ -1,5 +1,4 @@
 public class Board{
-	//TESTING ADDITIONS
 	private int[] choices;
 	private int[] spots;
 
@@ -16,7 +15,6 @@ public class Board{
 				       3,3,3,3,3,3,3,3,3,3,3,2,
 				       0,0,0,1,0,0,0,1,0,0,0,2};
 	}
-<<<<<<< HEAD
 	//mutator to change spots chosen
 	public void setChoices(int selection, int position){
 		this.choices[position] = selection;
@@ -102,37 +100,32 @@ public class Board{
 				}
 			}
 		}
-=======
-	public void printBoard(){
->>>>>>> bb069c34fb3ddf1ab6fdd167e4a59826e472e703
-		for(int i: spots){
-			switch (i){
-				case 0:
-					System.out.print(" ");
-					break;
-				case 1:
-					System.out.print("|");
-					break;
-				case 2:
-					System.out.print("\n");
-					break;
-				case 3:
-					System.out.print("-");
-					break;
-				case 4:
-					System.out.print("X");
-					break;
-				case 5:
-					System.out.print("O");
-					break;
-				default:
-					System.out.println("ERROR!");
-					break;
+
+			for(int i: spots){
+				switch (i){
+					case 0:
+						System.out.print(" ");
+						break;
+					case 1:
+						System.out.print("|");
+						break;
+					case 2:
+						System.out.print("\n");
+						break;
+					case 3:
+						System.out.print("-");
+						break;
+					case 4:
+						System.out.print("X");
+						break;
+					case 5:
+						System.out.print("O");
+						break;
+					default:
+						System.out.println("ERROR!");
+						break;
+		
+				}
 			}
-		}
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> bb069c34fb3ddf1ab6fdd167e4a59826e472e703
