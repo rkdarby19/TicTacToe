@@ -18,7 +18,7 @@ public class TicTac{
 			if(quit == 1){
 				break;		
 			}
-			gameMenu();
+			decision = gameMenu();
 			if(decision < 0){
 				System.out.println("You lose!");
 			}else if(decision > 0){
@@ -26,6 +26,7 @@ public class TicTac{
 			}else{
 				System.out.println("Cat's Game!");
 			}
+			board.reset();
 		}
 		
 		return 0;
@@ -70,11 +71,91 @@ public class TicTac{
 				return gameCheck;
 			}
 
+			int cpuSpot = compChoose(board.getChoices());
+			board.setChoices(5, cpuSpot);
+
+			gameCheck = winCheck(board.getChoices());
+			board.printBoard();
+			if(gameCheck == 1){
+				return gameCheck;	
+			}else if(gameCheck == -1){
+				return gameCheck;
+			}
 		}
 
 	}
+	public int compChoose(int[] choices){
+		//plan to make randomizer for this
+		for(int i = 0; i < choices.length; i++){
+			if(choices[i] == 0){
+				return i;
+			}
+		}
+		return 0;
+	}
 	public int winCheck(int[] choices){
-		
+		if(choices[0] == 4){
+			if(choices[1] == 4 && choices[2] == 4){
+				return 1;
+			}
+			if(choices[3] == 4 && choices[6] == 4){
+				return 1;
+			}
+			if(choices[4] == 4 && choices[8] == 4){
+				return 1;
+			}
+		}
+		if(choices[1] == 4){
+			if(choices[4] == 4 && choices[7] == 4){
+				return 1;
+			}
+		}
+		if(choices[2] == 4){
+			if(choices[5] == 4 && choices[8] == 4){
+				return 1;
+			}
+			if(choices[4] == 4 && choices[6] == 4){
+				return 1;
+			}
+		}
+		if(choices[3] == 4 && choices[4] == 4 && choices[5] == 4){
+			return 1;
+		}
+		if(choices[6] == 4 && choices[7] == 4 && choices[8] == 4){
+			return 1;
+		}
+
+
+		if(choices[0] == 5){
+			if(choices[1] == 5 && choices[2] == 5){
+				return -1;
+			}
+			if(choices[3] == 5 && choices[6] == 5){
+				return -1;
+			}
+			if(choices[4] == 5 && choices[8] == 5){
+				return -1;
+			}
+		}
+		if(choices[1] == 5){
+			if(choices[4] == 5 && choices[7] == 5){
+				return -1;
+			}
+		}
+		if(choices[2] == 5){
+			if(choices[5] == 5 && choices[8] == 5){
+				return -1;
+			}
+			if(choices[4] == 5 && choices[6] == 5){
+				return -1;
+			}
+		}
+		if(choices[3] == 5 && choices[4] == 5 && choices[5] == 5){
+			return -1;
+		}
+		if(choices[6] == 5 && choices[7] == 5 && choices[8] == 5){
+			return -1;
+		}
 		return 0;
 	}
 }

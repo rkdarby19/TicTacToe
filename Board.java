@@ -15,6 +15,16 @@ public class Board{
 				       3,3,3,3,3,3,3,3,3,3,3,2,
 				       0,0,0,1,0,0,0,1,0,0,0,2};
 	}
+	public void reset(){
+		for(int i = 0; i < this.choices.length; i++){
+			choices[i] = 0;
+		}
+		this.spots = new int[]{0,0,0,1,0,0,0,1,0,0,0,2,
+				       3,3,3,3,3,3,3,3,3,3,3,2,
+				       0,0,0,1,0,0,0,1,0,0,0,2,
+				       3,3,3,3,3,3,3,3,3,3,3,2,
+				       0,0,0,1,0,0,0,1,0,0,0,2};
+	}
 	//mutator to change spots chosen
 	public void setChoices(int selection, int position){
 		this.choices[position] = selection;
