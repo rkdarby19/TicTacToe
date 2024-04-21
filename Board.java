@@ -19,6 +19,9 @@ public class Board{
 	public void setChoices(int selection, int position){
 		this.choices[position] = selection;
 	}
+	public int getChoice(int index){
+		return this.choices[index];
+	}
 	public int[] getChoices(){
 		return this.choices;
 	}
