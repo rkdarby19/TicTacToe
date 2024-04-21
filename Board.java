@@ -1,4 +1,5 @@
 public class Board{
+	//TESTING ADDITIONS
 	private int[] choices;
 	private int[] spots;
 
