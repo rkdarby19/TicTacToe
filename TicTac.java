@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class TicTac{
 	private Scanner scan;
@@ -60,6 +61,10 @@ public class TicTac{
 		while(true){
 			System.out.println();
 			board.printBoard();
+			boolean chk =  catChk(board.getChoices());
+			if(chk){
+				return 0;
+			}
 			System.out.print("Where would you like to go? (1-9): ");
 			String newTemp = scan.nextLine();
 			userSpot = Integer.valueOf(newTemp);
@@ -99,14 +104,36 @@ public class TicTac{
 		}
 
 	}
+	public boolean catChk(int[] choices){
+		boolean checker = true;
+		for(int i: choices){
+			if(i == 0){
+				checker = false;
+			}
+		}
+		return checker;
+	}
 	public int compChoose(int[] choices){
+		if(catChk(choices)){
+			return 0;
+		}	
+		Random rand = new Random();
+		int spot = 0;
+		do{
+			spot = rand.nextInt(9);
+		}while(choices[spot] != 0);
+
+		return spot;
 		//plan to make randomizer for this
+		/*
 		for(int i = 0; i < choices.length; i++){
 			if(choices[i] == 0){
 				return i;
 			}
 		}
-		return 0;
+		*/
+		//return 0;
+		
 	}
 	public int winCheck(int[] choices){
 		if(choices[0] == 4){
