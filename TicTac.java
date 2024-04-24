@@ -32,8 +32,23 @@ public class TicTac{
 		return 0;
 	}
 	public int menu(){
+		//Small error here. After completing first game
+		//it returns to this prompt but if the user inputs a number
+		//it will stay with the prior "y" for the first game
+		String temp = "";
 		System.out.print("Play Game? (Y/N): ");
-		String temp = scan.nextLine();
+		temp = scan.nextLine();
+		int holder = Integer.valueOf(temp.charAt(0));
+		while( holder < 'A' || (holder > 'Z' && holder < 'a') || holder > 'z' ){
+			System.out.print("Must input a letter: ");
+			temp = scan.nextLine();
+			holder = Integer.valueOf(temp.charAt(0));
+		}
+		while(!((temp.charAt(0) == 'n' || temp.charAt(0) == 'N') || (temp.charAt(0) == 'y' || temp.charAt(0) == 'Y'))){
+				System.out.println("Unnacceptable!");
+				System.out.print("Play a game? (Y/N): ");
+				temp = scan.nextLine();
+		}
 		if(temp.charAt(0) == 'n' || temp.charAt(0) == 'N'){
 			return 1;
 		}else{
